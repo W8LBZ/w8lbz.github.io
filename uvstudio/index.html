@@ -6,10 +6,13 @@
 <title>UV Studio+ has moved</title>
 <link rel="canonical" href="https://ko4cgq.github.io/uvstudio-plus/">
 <script>
-  // UV Studio+ moved; send /uvstudio/<anything> to the same place on the new site, keeping ?query and #hash.
+  // UV Studio+ moved: /uvstudio/<anything> goes to the same place on the new site, keeping ?query and #hash
+  // (the app's front page opens on the Live Viewer, #live). Anything else on this site goes to the club's site.
   var NEW = 'https://ko4cgq.github.io/uvstudio-plus';
   var p = location.pathname;
-  if (p === '/uvstudio' || p.indexOf('/uvstudio/') === 0) location.replace(NEW + p.slice('/uvstudio'.length) + location.search + location.hash);
+  if (p === '/uvstudio' || p === '/uvstudio/') location.replace(NEW + '/' + location.search + (location.hash || '#live'));
+  else if (p.indexOf('/uvstudio/') === 0) location.replace(NEW + p.slice('/uvstudio'.length) + location.search + location.hash);
+  else location.replace('https://w8lbz.org/');
 </script>
 <style>body{font:16px/1.5 system-ui,sans-serif;max-width:32em;margin:3em auto;padding:0 1em}</style>
 </head>
